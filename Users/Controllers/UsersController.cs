@@ -22,8 +22,6 @@ namespace Users.Controllers
         {
             this.ctx = ctx;
             this.cfg = cfg;
-
-            ctx.Database.EnsureCreated();
         }
 
         [HttpGet]
@@ -44,10 +42,8 @@ namespace Users.Controllers
         [Authorize(Roles = "client")]
         public async Task<IActionResult> GetSelfInfo()
         {
-            var authHeader = Request.Headers.Authorization[0];
-            var encodedJwt = authHeader["Bearer ".Length..];
-            var jwt = new JwtSecurityTokenHandler().ReadJwtToken(encodedJwt);
-            var id = long.Parse(jwt.Claims.First(c => c.Type.Equals("id")).Value);
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            long id = long.Parse(claimsIdentity!.FindFirst("id")!.Value);
             var client = await ctx.Clients.FirstAsync(c => c.Id == id);
             return Ok(client);
         }
