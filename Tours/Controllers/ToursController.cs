@@ -8,7 +8,7 @@ using Tours.Models;
 
 namespace Tours.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/tours")]
     [ApiController]
     public class ToursController : ControllerBase
     {

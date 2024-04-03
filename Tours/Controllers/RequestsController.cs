@@ -9,7 +9,7 @@ using Tours.Models;
 
 namespace Tours.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/requests")]
     [ApiController]
     public class RequestsController : ControllerBase
     {
