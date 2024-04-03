@@ -6,7 +6,7 @@ using System.Text.Json;
 
 namespace Analytics.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/analytics")]
     [ApiController]
     public class AnalyticsController : ControllerBase
     {

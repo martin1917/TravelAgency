@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Tours.Data;
 using Tours.Dto;
@@ -22,21 +23,28 @@ namespace Tours.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var claimsIdentity = User.Identity as ClaimsIdentity;
-            if (claimsIdentity is null)
+            if (!Request.Headers.Authorization.Any())
             {
                 return Ok(ctx.Tours.Where(t => t.IsActive == 1));
             }
 
-            string role = claimsIdentity!.FindFirst("role")!.Value;
-            if (role.Equals("touragent"))
+            var authHeader = Request.Headers.Authorization[0];
+            if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
             {
-                return Ok(ctx.Tours);
+                var encodedJwt = authHeader["Bearer ".Length..];
+                try
+                {
+                    var jwt = new JwtSecurityTokenHandler().ReadJwtToken(encodedJwt);
+                    var role = jwt.Claims.First(c => c.Type.Equals("role"));
+                    if (role.Value.Equals("touragent"))
+                    {
+                        return Ok(ctx.Tours);
+                    }
+                }
+                catch(Exception e) {}
             }
-            else
-            {
-                return Ok(ctx.Tours.Where(t => t.IsActive == 1));
-            }
+
+            return Ok(ctx.Tours.Where(t => t.IsActive == 1));
         }
 
         [HttpGet("{tourId}")]
