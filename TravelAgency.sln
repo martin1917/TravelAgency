@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtHelper", "JwtHelper\JwtH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIGateway", "APIGateway\APIGateway.csproj", "{7E92EE3D-D7E2-45F1-8927-C19BB8FC9D71}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{5EAE9540-EB23-4EB5-9217-578BFB29D128}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7E92EE3D-D7E2-45F1-8927-C19BB8FC9D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E92EE3D-D7E2-45F1-8927-C19BB8FC9D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E92EE3D-D7E2-45F1-8927-C19BB8FC9D71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAE9540-EB23-4EB5-9217-578BFB29D128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAE9540-EB23-4EB5-9217-578BFB29D128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAE9540-EB23-4EB5-9217-578BFB29D128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAE9540-EB23-4EB5-9217-578BFB29D128}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
