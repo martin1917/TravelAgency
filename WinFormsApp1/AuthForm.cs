@@ -43,7 +43,15 @@ namespace WinFormsApp1
             }
 
             var authResponse = await loginResponse.Content.ReadFromJsonAsync<AuthResponse>();
-            MessageBox.Show($"Создание успешно\n{authResponse}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            CurrentUser.Username = authResponse.Username;
+            CurrentUser.Role = authResponse.Role;
+            CurrentUser.AccessToken = authResponse.AccessToken;
+
+            var mainForm = new MainForm();
+            mainForm.FormClosed += (s, args) => Close();
+            mainForm.Show();
+            Hide();
         }
 
         private async void btnRegistrate_Click(object sender, EventArgs e)
