@@ -38,8 +38,12 @@ namespace Tours.Controllers
             };
 
             await ctx.Requests.AddAsync(newRequest);
+
+            var bookedTour = ctx.Tours.First(t => t.Id == bookTourDto.ToorId);
+            bookedTour.IsActive = 0;
+
             await ctx.SaveChangesAsync();
-            return Ok($"Tour with id = {bookTourDto.ToorId} has booked. Request with id = ${newRequest.Id}");
+            return Ok(newRequest);
         }
 
         [HttpPost("change_status")]

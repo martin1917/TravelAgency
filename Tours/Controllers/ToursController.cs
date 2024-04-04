@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Tours.Data;
 using Tours.Dto;
 using Tours.Models;
@@ -67,13 +66,13 @@ namespace Tours.Controllers
                 PricePurchase = createTourDto.PricePurchase,
                 PriceSale = createTourDto.PriceSale,
                 DateStart = createTourDto.DateStart,
-                DateEnd = createTourDto.DateStart.AddDays(createTourDto.CountDays),
+                DateEnd = createTourDto.DateEnd,
                 IsActive = 1
             };
 
             await ctx.Tours.AddAsync(tour);
             await ctx.SaveChangesAsync();
-            return Ok($"Tour with id = ${tour.Id} has created");
+            return Ok(tour);
         }
 
         [HttpPut("{id}")]
@@ -121,14 +120,18 @@ namespace Tours.Controllers
             {
                 tour.DateStart = updateTourDto.DateStart.Value;
             }
-            if (updateTourDto.CountDays is not null)
+            if (updateTourDto.DateEnd is not null)
             {
-                tour.DateEnd = tour.DateStart.AddDays(updateTourDto.CountDays.Value);
+                tour.DateEnd = updateTourDto.DateEnd.Value;
+            }
+            if (updateTourDto.IsActive is not null)
+            {
+                tour.IsActive = updateTourDto.IsActive.Value;
             }
 
             ctx.Tours.Update(tour);
             await ctx.SaveChangesAsync();
-            return Ok($"Tour with id = {id} has updated");
+            return Ok(tour);
         }
 
         [HttpDelete("{id}")]

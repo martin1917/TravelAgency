@@ -75,6 +75,21 @@
         "AuthenticationProviderKey": "Bearer"
       }
     },
+    {
+      "UpstreamPathTemplate": "/api/touragents/me",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7181
+        }
+      ],
+      "DownstreamPathTemplate": "/api/users/touragents/me",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer"
+      }
+    },
 
     // tours
     {

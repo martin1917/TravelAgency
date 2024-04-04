@@ -18,6 +18,8 @@
 
         public DateTime? DateStart { get; set; }
 
-        public int? CountDays { get; set; }
+        public DateTime? DateEnd { get; set; }
+
+        public int? IsActive { get; set; }
     }
 }

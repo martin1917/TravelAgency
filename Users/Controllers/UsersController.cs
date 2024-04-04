@@ -48,6 +48,16 @@ namespace Users.Controllers
             return Ok(client);
         }
 
+        [HttpGet("touragents/me")]
+        [Authorize(Roles = "touragent")]
+        public async Task<IActionResult> GetSelfInfoTouragent()
+        {
+            var claimsIdentity = User.Identity as ClaimsIdentity;
+            long id = long.Parse(claimsIdentity!.FindFirst("id")!.Value);
+            var touragent = await ctx.TourAgents.FirstAsync(c => c.Id == id);
+            return Ok(touragent);
+        }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {

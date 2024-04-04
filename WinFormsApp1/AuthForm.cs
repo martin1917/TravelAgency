@@ -31,11 +31,11 @@ namespace WinFormsApp1
 
             var httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:7181/api/"),
+                BaseAddress = new Uri("https://localhost:7120/api/"),
                 Timeout = new TimeSpan(0, 0, 30)
             };
 
-            var loginResponse = await httpClient.PostAsJsonAsync("users/login", credentials);
+            var loginResponse = await httpClient.PostAsJsonAsync("auth/login", credentials);
             if (loginResponse.StatusCode != HttpStatusCode.OK)
             {
                 MessageBox.Show($"Ошибка\nКод: {loginResponse.StatusCode}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -49,7 +49,7 @@ namespace WinFormsApp1
             CurrentUser.AccessToken = authResponse.AccessToken;
 
             var mainForm = new MainForm();
-            mainForm.FormClosed += (s, args) => Close();
+            mainForm.FormClosed += (s, args) => Show();
             mainForm.Show();
             Hide();
         }
@@ -80,11 +80,11 @@ namespace WinFormsApp1
 
             var httpClient = new HttpClient
             {
-                BaseAddress = new Uri("https://localhost:7181/api/"),
+                BaseAddress = new Uri("https://localhost:7120/api/"),
                 Timeout = new TimeSpan(0, 0, 30)
             };
 
-            var response = await httpClient.PostAsJsonAsync("users/registration", newClient);
+            var response = await httpClient.PostAsJsonAsync("auth/registration", newClient);
             if (response.StatusCode == HttpStatusCode.OK)
             {
                 MessageBox.Show($"Создание успешно", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Information);
