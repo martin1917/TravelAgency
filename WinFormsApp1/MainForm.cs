@@ -49,11 +49,7 @@ namespace WinFormsApp1
         {
             tbCurrentRole.Text = CurrentUser.Role;
 
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
 
@@ -91,11 +87,7 @@ namespace WinFormsApp1
         #region clients tab
         private async void btnLoadClients_Click(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
 
@@ -125,11 +117,7 @@ namespace WinFormsApp1
         #region tours tab
         private async void btnLoadTours_Click(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {CurrentUser.AccessToken}");
 
@@ -168,11 +156,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {CurrentUser.AccessToken}");
 
@@ -226,11 +210,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {CurrentUser.AccessToken}");
 
@@ -269,11 +249,7 @@ namespace WinFormsApp1
         #region requests tab
         private async void btnLoadRequests_Click(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
 
@@ -305,11 +281,7 @@ namespace WinFormsApp1
 
         private async void btnLoadRequests_ClickClient(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
 
@@ -341,11 +313,7 @@ namespace WinFormsApp1
 
         private async void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
 
@@ -402,11 +370,7 @@ namespace WinFormsApp1
         #region stats
         private async void btnStatCountry_Click(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
             var response = await httpClient.GetAsync("analytics/top_country");
@@ -437,11 +401,7 @@ namespace WinFormsApp1
 
         private async void btnStatClient_Click(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
             var response = await httpClient.GetAsync("analytics/client_stats");

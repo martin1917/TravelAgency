@@ -29,11 +29,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             var loginResponse = await httpClient.PostAsJsonAsync("auth/login", credentials);
             if (loginResponse.StatusCode != HttpStatusCode.OK)
@@ -78,11 +74,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             var response = await httpClient.PostAsJsonAsync("auth/registration", newClient);
             if (response.StatusCode == HttpStatusCode.OK)

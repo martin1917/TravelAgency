@@ -19,11 +19,7 @@ namespace WinFormsApp1
 
         private async void btnOK_Click(object sender, EventArgs e)
         {
-            var httpClient = new HttpClient
-            {
-                BaseAddress = new Uri("https://localhost:7120/api/"),
-                Timeout = new TimeSpan(0, 0, 30)
-            };
+            var httpClient = HttpClientFactory.Create();
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + CurrentUser.AccessToken);
 
