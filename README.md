@@ -72,14 +72,6 @@ flowchart LR
 | ... |  |  |
 | 18 | 1 | 105000 |
 
-```mermaid
-pie showData
-    title Статистика по клиентам
-    "Клиент с ID=1, общ. потраченная сумма = " : 280000
-    "Клиент с ID=2, общ. потраченная сумма = " : 185000
-    "Клиент с ID=18, общ. потраченная сумма = " : 105000
-```
-
 ## api/analytics/countries
 | country | total_paid_tours | total_profit |
 |:---:|:---:|:---:|
@@ -88,10 +80,30 @@ pie showData
 | ... |  |  |
 | Эстония | 4 | 50000 |
 
-```mermaid
-pie showData
-    title Статистика по странам
-    "Испания, доход = " : 675000
-    "Турция, доход = " : 229000
-    "Эстония, доход = " : 50000
-```
+# Десктопное приложение
+## Форма входа
+![](./Screens/Auth.png)
+
+## Клиенты
+![](./Screens/ClientTab.png)
+
+## Туры
+![](./Screens/TourTab.png)
+
+## Добавление тура
+![](./Screens/CreateUpdateForm.png)
+
+## Заявки
+![](./Screens/RequestsTab.png)
+
+## Изменение статуса заявки
+![](./Screens/RequestsChangeStatus.png)
+
+## Статистика
+![](./Screens/stats.png)
+
+## Туры (клиент)
+![](./Screens/TourTabClient.png)
+
+## Заявки (клиент)
+![](./Screens/RequestsTabClient.png)
