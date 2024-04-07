@@ -28,8 +28,8 @@ flowchart LR
 ## auth (Auth / Users)
 | method  | uri                                      | roles       | description|
 |-------|:-----------------------------------------|:-----------:|------------|
-| POST    | api/registration                           | any         | регистрация клиента
-| POST    | api/auth                                 | any         | авторизация клиента
+| POST    | api/users/registration | any         | регистрация клиента
+| POST    | api/auth/login | any         | авторизация клиента
 
 ## clients (Auth / Users)
 | method  | uri                                      | roles       | description|
