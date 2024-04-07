@@ -37,7 +37,7 @@ flowchart LR
 | GET     | api/clients                              | touragent   | получить всех клиентов
 | GET     | api/clients/{client_id}                  | touragent   | получить клиента по ID
 | GET     | api/clients/me                           | client      | получить инфу о себе
-| UPDATE  | api/clients/me                           | client      | обновить инфу о себе
+| GET  | api/touragents/me                           | touragent      | получить инфу о себе (турагент)
 
 ## tours (Tours / Requests)
 | method  | uri                                      | roles       | description|
@@ -60,11 +60,11 @@ flowchart LR
 ## analytics (Analytics)
 | method  | uri                                      | roles       | description|
 |-------|:-----------------------------------------|:-----------:|------------|
-| GET     | api/analytics/clients                    | touragent   | статистика по количеству купленных туров и общей потраченной сумме для каждого клиента
-| GET     | api/analytics/countries                  | touragent   | статистика по количеству купленных туров и общей потраченной сумме в каждой из стран
+| GET     | api/analytics/client_stats                    | touragent   | статистика по количеству купленных туров и общей потраченной сумме для каждого клиента
+| GET     | api/analytics/top_country                  | touragent   | статистика по количеству купленных туров и общей потраченной сумме в каждой из стран
 
 # Пример аналитики
-## api/analytics/clients
+## api/analytics/client_stats
 | client_id | total_paid_tours | total_money_spent |
 |:---:|:---:|:---:|
 | 1 | 4 | 280000 |
@@ -72,7 +72,7 @@ flowchart LR
 | ... |  |  |
 | 18 | 1 | 105000 |
 
-## api/analytics/countries
+## api/analytics/top_country
 | country | total_paid_tours | total_profit |
 |:---:|:---:|:---:|
 | Испания | 30 | 675000 |
