@@ -143,7 +143,7 @@
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.RowHeadersVisible = false;
             this.dataGridViewClients.RowTemplate.Height = 25;
-            this.dataGridViewClients.Size = new System.Drawing.Size(943, 473);
+            this.dataGridViewClients.Size = new System.Drawing.Size(943, 437);
             this.dataGridViewClients.TabIndex = 0;
             // 
             // ColumnID
@@ -250,7 +250,7 @@
             this.dataGridViewTours.Name = "dataGridViewTours";
             this.dataGridViewTours.RowHeadersVisible = false;
             this.dataGridViewTours.RowTemplate.Height = 25;
-            this.dataGridViewTours.Size = new System.Drawing.Size(946, 473);
+            this.dataGridViewTours.Size = new System.Drawing.Size(946, 437);
             this.dataGridViewTours.TabIndex = 0;
             this.dataGridViewTours.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTours_CellDoubleClick);
             // 
@@ -394,7 +394,7 @@
             this.dataGridViewRequests.Name = "dataGridViewRequests";
             this.dataGridViewRequests.RowHeadersVisible = false;
             this.dataGridViewRequests.RowTemplate.Height = 25;
-            this.dataGridViewRequests.Size = new System.Drawing.Size(946, 472);
+            this.dataGridViewRequests.Size = new System.Drawing.Size(946, 436);
             this.dataGridViewRequests.TabIndex = 0;
             this.dataGridViewRequests.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewRequests_CellMouseClick);
             // 

@@ -32,9 +32,9 @@ namespace WinFormsApp1
             var httpClient = HttpClientFactory.Create();
 
             var loginResponse = await httpClient.PostAsJsonAsync("auth/login", credentials);
-            if (loginResponse.StatusCode != HttpStatusCode.OK)
+            if (loginResponse.StatusCode != HttpStatusCode.OK && loginResponse.StatusCode == HttpStatusCode.NotFound)
             {
-                MessageBox.Show($"Ошибка\nКод: {loginResponse.StatusCode}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка входа\nНеверно указан логин или пароль", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -83,7 +83,7 @@ namespace WinFormsApp1
             }
             else
             {
-                MessageBox.Show($"Ошибка\nКод: {response.StatusCode}", "Ответ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка\nПользователь с таким логином уже существует", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

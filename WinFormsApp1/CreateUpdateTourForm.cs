@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using WinFormsApp1.Models;
 
 namespace WinFormsApp1
@@ -31,15 +32,15 @@ namespace WinFormsApp1
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            var newData = new TourModel
+            var newData = new CreateTour
             {
                 Name = tbTourName.Text,
                 HotelName = tbHotel.Text,
                 Country = tbCountry.Text,
                 TypeRoom = tbTypeRoom.Text,
                 TypeFood = tbTypeFood.Text,
-                PricePurchase = decimal.Parse(tbPricePurchase.Text),
-                PriceSale = decimal.Parse(tbPriceSale.Text),
+                PricePurchase = tbPricePurchase.Text,
+                PriceSale = tbPriceSale.Text,
                 DateStart = dtpStart.Value,
                 DateEnd = dtpEnd.Value,
                 IsActive = cbTourIsActive.Checked ? 1 : 0
@@ -60,8 +61,8 @@ namespace WinFormsApp1
             TourModel.Country = newData.Country;
             TourModel.TypeRoom = newData.TypeRoom;
             TourModel.TypeFood = newData.TypeFood;
-            TourModel.PricePurchase = newData.PricePurchase;
-            TourModel.PriceSale = newData.PriceSale;
+            TourModel.PricePurchase = decimal.Parse(newData.PricePurchase, CultureInfo.InvariantCulture);
+            TourModel.PriceSale = decimal.Parse(newData.PriceSale, CultureInfo.InvariantCulture);
             TourModel.DateStart = newData.DateStart;
             TourModel.DateEnd = newData.DateEnd;
             TourModel.IsActive = newData.IsActive;
